@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipsita Das</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .nav {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 0;
+        }
+        
+        .nav-item {
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            border-bottom-color: #333;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .photo-container {
+            flex-shrink: 0;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 24px;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+        
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .nav {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 0;
+        }
+        
+        .nav-item {
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            border-bottom-color: #333;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+        }
+        
+        .content {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .research-paper {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .research-paper:last-child {
+            border-bottom: none;
+        }
+        
+        .paper-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .paper-status {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        
+        .paper-authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .paper-description {
+            color: #333;
+        }
+        
+        .contact {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .nav-list {
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-photo,
+            .photo-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item active" data-tab="home">
+                <a href="#">Home</a>
+            </li>
+            <li class="nav-item" data-tab="research">
+                <a href="#">Research</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="header">
+        <div class="photo-container">
+            <img src="ipsita-photo.jpg" alt="Ipsita Das" class="profile-photo" id="profilePhoto" style="display: none;">
+            <div class="photo-placeholder" id="photoPlaceholder">ID</div>
+        </div>
+        <div class="header-text">
+            <h1>Ipsita Das</h1>
+            <div class="subtitle">Doctoral Candidate in Economics at IGIDR, Mumbai</div>
+        </div>
+    </div>
+    
+    <main>
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="content">
+                <p>I am a Doctoral Candidate in Economics at the <a href="https://www.igidr.ac.in/" target="_blank">Indira Gandhi Institute of Development Research (IGIDR)</a>, Mumbai, affiliated with the Reserve Bank of India. I hold a master's degree in economics from IGIDR and a bachelor's degree from <a href="https://www.scottishchurch.ac.in/" target="_blank">Scottish Church College</a>, University of Calcutta.</p>
+                
+                <p>My research focuses on corporate finance, banking, and applied microeconomics, with additional interests in macro-finance and monetary policy. Passionate about advancing knowledge in these areas, I strive to contribute meaningfully to academic and policy discussions.</p>
+                
+                <p>Thank you for visiting my webpage!</p>
+                
+                <div class="contact">
+                    <strong>Email:</strong> ipsita[dot]igidr[at]ac[dot]in
+                </div>
+            </div>
+        </div>
+        
+        <!-- Research Tab -->
+        <div id="research" class="tab-content">
+            <div class="content">
+                <div class="research-paper">
+                    <div class="paper-title">Your First Paper Title</div>
+                    <div class="paper-status">Working Paper</div>
+                    <div class="paper-authors">Ipsita Das</div>
+                    <div class="paper-description">
+                        Add a brief description of your research paper here. What question does it address? What are the key findings?
+                    </div>
+                </div>
+                
+                <div class="research-paper">
+                    <div class="paper-title">Your Second Paper Title</div>
+                    <div class="paper-status">Work in Progress</div>
+                    <div class="paper-authors">Ipsita Das and Co-author Name</div>
+                    <div class="paper-description">
+                        Description of your second research paper or work in progress.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items and content
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Photo handling
+            const profilePhoto = document.getElementById('profilePhoto');
+            const photoPlaceholder = document.getElementById('photoPlaceholder');
+            
+            profilePhoto.onload = function() {
+                photoPlaceholder.style.display = 'none';
+                profilePhoto.style.display = 'block';
+            };
+            
+            profilePhoto.onerror = function() {
+                // Keep placeholder visible if photo doesn't load
+                photoPlaceholder.style.display = 'flex';
+                profilePhoto.style.display = 'none';
+            };
+            
+            // Try to load the photo
+            profilePhoto.src = 'ipsita-photo.jpg';
+        });
+    </script>
+</body>
+</html>
