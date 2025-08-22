@@ -178,6 +178,31 @@
             font-size: 0.95em;
         }
         
+        .abstract-toggle {
+            color: #0066cc;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+        
+        .abstract-toggle:hover {
+            text-decoration: underline;
+        }
+        
+        .abstract-content {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 3px solid #0066cc;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        
+        .abstract-content.show {
+            display: block;
+        }
+        
         .paper-description {
             color: #333;
         }
@@ -270,21 +295,38 @@
         <!-- Research Tab -->
         <div id="research" class="tab-content">
             <div class="content">
+                <h2 style="font-size: 1.5em; margin-bottom: 30px; font-weight: normal; color: #333;">Work in Progress</h2>
+                
                 <div class="research-paper">
-                    <div class="paper-title">Your First Paper Title</div>
-                    <div class="paper-status">Working Paper</div>
+                    <div class="paper-title">Paper Title 1</div>
                     <div class="paper-authors">Ipsita Das</div>
-                    <div class="paper-description">
-                        Add a brief description of your research paper here. What question does it address? What are the key findings?
+                    <div class="abstract-toggle" onclick="toggleAbstract('abstract1')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="abstract1">
+                        <p>Add your abstract here. This section will be hidden by default and expand when clicked.</p>
                     </div>
                 </div>
                 
                 <div class="research-paper">
-                    <div class="paper-title">Your Second Paper Title</div>
-                    <div class="paper-status">Work in Progress</div>
+                    <div class="paper-title">Paper Title 2</div>
                     <div class="paper-authors">Ipsita Das and Co-author Name</div>
-                    <div class="paper-description">
-                        Description of your second research paper or work in progress.
+                    <div class="abstract-toggle" onclick="toggleAbstract('abstract2')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="abstract2">
+                        <p>Add your second paper abstract here.</p>
+                    </div>
+                </div>
+                
+                <div class="research-paper">
+                    <div class="paper-title">Paper Title 3</div>
+                    <div class="paper-authors">Ipsita Das</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('abstract3')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="abstract3">
+                        <p>Add your third paper abstract here.</p>
                     </div>
                 </div>
             </div>
@@ -332,6 +374,21 @@
             // Try to load the photo
             profilePhoto.src = 'ipsita-photo.jpg';
         });
+        
+        // Abstract toggle functionality
+        function toggleAbstract(abstractId) {
+            const abstractContent = document.getElementById(abstractId);
+            const toggleButton = abstractContent.previousElementSibling;
+            const toggleText = toggleButton.querySelector('.toggle-text');
+            
+            if (abstractContent.classList.contains('show')) {
+                abstractContent.classList.remove('show');
+                toggleText.textContent = '+ Abstract';
+            } else {
+                abstractContent.classList.add('show');
+                toggleText.textContent = '- Abstract';
+            }
+        }
     </script>
 </body>
 </html>
