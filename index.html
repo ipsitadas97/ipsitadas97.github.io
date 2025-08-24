@@ -54,7 +54,7 @@
         .header {
             margin-bottom: 40px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;  /* Changed from flex-start to center for better alignment */
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -66,14 +66,14 @@
         .profile-photo {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
+            border-radius: 8px; /* Changed from 50% to 8px for square with rounded corners */
             object-fit: cover;
         }
         
         .photo-placeholder {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
+            border-radius: 8px; /* Changed from 50% to 8px for square with rounded corners */
             background-color: #f0f0f0;
             display: flex;
             align-items: center;
@@ -87,6 +87,23 @@
         .header-text {
             flex: 1;
             min-width: 300px;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .social-links a:hover {
+            text-decoration: underline;
         }
         
         h1 {
@@ -203,6 +220,19 @@
             display: block;
         }
         
+        .section-header {
+            font-size: 1.3em;
+            font-weight: normal;
+            color: #333;
+            margin: 40px 0 20px 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .section-header:first-child {
+            margin-top: 20px;
+        }
+        
         .paper-description {
             color: #333;
         }
@@ -273,6 +303,16 @@
         <div class="header-text">
             <h1>Ipsita Das</h1>
             <div class="subtitle">Doctoral Candidate in Economics at IGIDR, Mumbai</div>
+            
+            <!-- Social/Academic Links - SWITCH ON/OFF by removing/adding comments -->
+            <!-- 
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=your-id" target="_blank">Google Scholar</a>
+                <a href="your-cv.pdf" target="_blank">CV</a>
+                <a href="https://your-blog.com" target="_blank">Blog</a>
+            </div>
+            -->
         </div>
     </div>
     
@@ -295,40 +335,86 @@
         <!-- Research Tab -->
         <div id="research" class="tab-content">
             <div class="content">
-                <h2 style="font-size: 1.5em; margin-bottom: 30px; font-weight: normal; color: #333;">Work in Progress</h2>
+                
+                <!-- WORKING PAPERS SECTION - SWITCH ON/OFF by removing/adding comments -->
+                <!--
+                <div class="section-header">Working Papers</div>
                 
                 <div class="research-paper">
-                    <div class="paper-title">Impact of Mergers and Acquisitions on the Efficiency of the Indian Banking System</div>
-                    <!--<div class="paper-authors">Ipsita Das</div>-->
-                    <div class="abstract-toggle" onclick="toggleAbstract('abstract1')">
+                    <div class="paper-title">Working Paper Title 1</div>
+                    <div class="paper-authors">Ipsita Das</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('wp-abstract1')">
                         <span class="toggle-text">+ Abstract</span>
                     </div>
-                    <div class="abstract-content" id="abstract1">
-                        <p></p>
+                    <div class="abstract-content" id="wp-abstract1">
+                        <p>Add your working paper abstract here.</p>
                     </div>
                 </div>
                 
                 <div class="research-paper">
-                    <div class="paper-title">Profit Efficiency, Mergers and Bank Risk: A Study on Indian Banks.</div>
-                   <!--<div class="paper-authors">Ipsita Das</div>-->
-                    <div class="abstract-toggle" onclick="toggleAbstract('abstract2')">
+                    <div class="paper-title">Working Paper Title 2</div>
+                    <div class="paper-authors">Ipsita Das and Co-author Name</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('wp-abstract2')">
                         <span class="toggle-text">+ Abstract</span>
                     </div>
-                    <div class="abstract-content" id="abstract2">
-                        <p></p>
+                    <div class="abstract-content" id="wp-abstract2">
+                        <p>Add your second working paper abstract here.</p>
+                    </div>
+                </div>
+                -->
+                
+                <!-- WORK IN PROGRESS SECTION -->
+                <div class="section-header">Work in Progress</div>
+                
+                <div class="research-paper">
+                    <div class="paper-title">Paper Title 1</div>
+                    <div class="paper-authors">Ipsita Das</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('wip-abstract1')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="wip-abstract1">
+                        <p>Add your abstract here. This section will be hidden by default and expand when clicked.</p>
                     </div>
                 </div>
                 
                 <div class="research-paper">
-                    <div class="paper-title">Bank Mergers and Market Power: Evidence from India.</div>
-                    <!--<div class="paper-authors">Ipsita Das</div>-->
-                    <div class="abstract-toggle" onclick="toggleAbstract('abstract3')">
+                    <div class="paper-title">Paper Title 2</div>
+                    <div class="paper-authors">Ipsita Das and Co-author Name</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('wip-abstract2')">
                         <span class="toggle-text">+ Abstract</span>
                     </div>
-                    <div class="abstract-content" id="abstract3">
-                        <p></p>
+                    <div class="abstract-content" id="wip-abstract2">
+                        <p>Add your second paper abstract here.</p>
                     </div>
                 </div>
+                
+                <!-- PUBLISHED WORKS SECTION - SWITCH ON/OFF by removing/adding comments -->
+                <!--
+                <div class="section-header">Published Works</div>
+                
+                <div class="research-paper">
+                    <div class="paper-title">Published Paper Title 1</div>
+                    <div class="paper-authors">Ipsita Das</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('pub-abstract1')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="pub-abstract1">
+                        <p>Add your published paper abstract here.</p>
+                    </div>
+                </div>
+                
+                <div class="research-paper">
+                    <div class="paper-title">Published Paper Title 2</div>
+                    <div class="paper-authors">Ipsita Das and Co-author Name</div>
+                    <div class="abstract-toggle" onclick="toggleAbstract('pub-abstract2')">
+                        <span class="toggle-text">+ Abstract</span>
+                    </div>
+                    <div class="abstract-content" id="pub-abstract2">
+                        <p>Add your second published paper abstract here.</p>
+                    </div>
+                </div>
+                -->
+                
             </div>
         </div>
     </main>
